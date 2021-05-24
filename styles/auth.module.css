@@ -1,0 +1,33 @@
+.sideform {
+  overflow: hidden !important;
+  background-image: url("../public/images/login.png") !important;
+  min-height: 100vh !important;
+  background-position: center !important;
+  background-repeat: no-repeat !important;
+  background-size: cover !important;
+}
+.sideform2 {
+  overflow: hidden !important;
+  background-image: url("../public/images/forgot.png") !important;
+  min-height: 100vh !important;
+  background-position: center !important;
+  background-repeat: no-repeat !important;
+  background-size: cover !important;
+}
+.icon {
+  position: absolute !important;
+  width: 2em !important;
+  height: 2em !important;
+}
+.line {
+  width: 100%;
+  text-align: center;
+  border-bottom: 2px solid #9db6f6;
+  line-height: 0.1em;
+  margin: 10px 0 20px;
+}
+.line span,
+.line small {
+  background: #fff;
+  padding: 0 10px;
+}
