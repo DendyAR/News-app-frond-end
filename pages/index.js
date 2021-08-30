@@ -1,22 +1,25 @@
-import axios from "axios";
-import { Navbar, Footer, Header } from "../components";
+import { Navbar, Footer, Header } from "../component";
 import styles from "../styles/Home.module.css";
-import { getArticles } from "../lib/fetchArticles";
 import useSWR from "swr";
+import Fetcher from "../lib/fetcher";
+import Link from 'next/link'
 
 function Home(props) {
-  const initialData = props.data;
-  //ini use swr
-  const { data } = useSWR(`${process.env.API_URL}articles/`, getArticles, {
+  const limit = 10
+  const offset = 1
+  const initialData = props.news;
+  //ini use sw
+  /* const { news: data } = fetchNews({limit:limit, offset : offset}) */
+  const { data } = useSWR(null, Fetcher({method:'GET', url:`${process.env.API_URL}/news/api`,params:{limit:limit, offset:offset}}), {
     initialData,
   });
-  console.log(data);
+  console.log(data)
 
   return (
     <>
-      <Header title="dashboard" />
-      <Navbar />
-      <section className="container-fluid p-0">
+      <Header title="Dashboard" />
+      <Navbar state='home'/>
+      <section className="container-fluid p-0 pt-5">
         <div className={styles.banner}>
           <div className="col-md-12 col-lg-5 my-5 p-5">
             <h1>Share Information and Educate People</h1>
@@ -26,7 +29,7 @@ function Home(props) {
               prespective of something to the world.
             </span>
             <br />
-            <button className="btn btn-blue p-3 mt-4">Start Exploring</button>
+            <Link href='/articles'><button className="btn btn-blue p-3 mt-4">Start Exploring</button></Link>
           </div>
         </div>
         <div className={styles.filter}>
@@ -146,7 +149,7 @@ function Home(props) {
                 <img
                   src="./images/corona.png"
                   alt="..."
-                  className={styles.cover_image}
+                  className={styles.article_cover}
                 />
                 <div className={`${styles.content} ms-3 my-3`}>
                   <span className="text-blue">COVID-19</span>
@@ -179,9 +182,9 @@ function Home(props) {
                 <img
                   src="./images/corona.png"
                   alt="..."
-                  className={styles.cover_image}
+                  className={styles.article_cover}
                 />
-                <div className={`${styles.content} ms-3 my-3`}>
+                <div className={`${styles.article_headline} ms-3 my-3`}>
                   <span className="text-blue">COVID-19</span>
                   <div className="d-flex flex-column bd-highlight mt-3">
                     <div className="bd-highlight">
@@ -212,9 +215,9 @@ function Home(props) {
                 <img
                   src="./images/goverment.png"
                   alt="..."
-                  className={styles.cover_image}
+                  className={styles.article_cover}
                 />
-                <div className={`${styles.content} ms-3 my-3`}>
+                <div className={`${styles.article_headline} ms-3 my-3`}>
                   <span className="text-blue">COVID-19</span>
                   <div className="d-flex flex-column bd-highlight mt-3">
                     <div className="bd-highlight">
@@ -249,7 +252,7 @@ function Home(props) {
                 Let's hear about Kayla's success story
               </h1>
               <h3 className="my-5">
-                See how well articles Today works in a real user’s life.{" "}
+                See how well News Today works in a real user’s life.{" "}
               </h3>
               <button className="btn btn-blue p-3 my-5">
                 Let’s get started
@@ -264,7 +267,7 @@ function Home(props) {
           </div>
         </div>
         <div className="filter-tags p-0 p-lg-5">
-          <h5 className="fw-bold">Latest articles</h5>
+          <h5 className="fw-bold">Latest News</h5>
           <div className="row">
             {data.data &&
               data.data.map((item) => (
@@ -273,16 +276,16 @@ function Home(props) {
                     <div className="row">
                       <div className="col-5">
                         <img
-                          src={`http://localhost:5024/${item.cover_image}`}
+                          src={`${process.env.API_URL_IMG}${item.article_cover}`}
                           alt="..."
-                          className={styles.cover_image}
+                          className={styles.article_cover}
                         />
                       </div>
                       <div className="col-7">
                         <div className="content ms-3 my-3">
-                          <span className="text-blue">{item.articles_title}</span>
+                          <span className="text-blue">{item.article_title}</span>
                           <div className="d-flex flex-column bd-highlight mt-3">
-                            <div className="bd-highlight">{`${item.attchment.substring(
+                            <div className="bd-highlight">{`${item.article_content.substring(
                               0,
                               50
                             )}...`}</div>
@@ -293,10 +296,12 @@ function Home(props) {
                                 <img src="./icon/Like.svg" alt="..." />
                                 <small> 2.1k</small>
                               </div>
+                              <Link href={`/${item.id}`}>
                               <div className="p-2 bd-highlight">
                                 <img src="./icon/Clock.svg" alt="..." />
                                 <small> 2.1k</small>
                               </div>
+                              </Link>
                               <div className="p-2 bd-highlight">
                                 <img src="./icon/Borkmark.svg" alt="..." />
                                 <small> 2.1k</small>
@@ -316,10 +321,13 @@ function Home(props) {
     </>
   );
 }
+//getServerSideProps
 export const getServerSideProps = async () => {
-  const data = await getArticles(`${process.env.API_URL}articles/`);
+  const limit = 10
+  const offset = 1
+  const news = await Fetcher({method:'GET', url:`${process.env.API_URL}/news/api`,params:{limit:limit, offset:offset}});
   return {
-    props: { data },
+    props: { news },
   };
 };
 export default Home;

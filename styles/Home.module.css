@@ -1,4 +1,4 @@
-.banner {
+.banner{
   overflow: hidden !important;
   background-image: url("../public/images/unsplash.png") !important;
   min-height: 80vh !important;
@@ -6,7 +6,7 @@
   background-repeat: no-repeat !important;
   background-size: cover !important;
 }
-.banner2 {
+.banner2{
   overflow: hidden !important;
   background-image: url("../public/images/article.png") !important;
   min-height: 80vh !important;
@@ -15,25 +15,25 @@
   background-size: cover !important;
 }
 .content2 {
-  background-image: linear-gradient(to right, white, transparent);
+  background-image: linear-gradient(to right,white , transparent);
   width: 100%;
   min-height: 80vh;
 }
-.gba_blue {
-  background-color: rgba(218, 250, 250, 1);
+.gba_blue{
+  background-color: rgba(218, 250, 250,1);
 }
-.card-img {
+.card-img{
   border: transparent !important;
 }
-.filter {
+.filter{
   overflow-y: hidden;
   overflow-x: hidden;
   max-width: 100vw;
 }
-.content {
+.content{
   width: 50% !important;
 }
-.poster {
+.poster{
   max-width: 8em !important;
   max-height: 100% !important;
 }

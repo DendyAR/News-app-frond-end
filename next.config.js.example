@@ -1,0 +1,8 @@
+module.exports = {
+    env: {
+        API_URL: 'url api',
+        API_URL_IMG: 'url image api',
+        ORIGIN_URL:'origin url',
+        SECRET_COOKIE_PASSWORD: 'secret cookie password'
+    },
+}

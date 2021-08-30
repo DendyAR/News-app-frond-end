@@ -1,0 +1,9 @@
+{
+    "compilerOptions": {
+      "baseUrl": ".",
+      "paths": {
+        "@/component/*": ["../component/*"],
+        "@/node_modules/*":["node_modules/*"]
+      }
+    }
+  }
