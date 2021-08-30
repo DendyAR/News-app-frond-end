@@ -5,7 +5,10 @@ import { useUser } from "../api/users";
 import { useRouter } from "next/router";
 import { useState, useEffect } from "react";
 import Fetcher from "../../lib/fetcher";
-import { EditProfile, SavedPost, Faq , Help } from "./component";
+import  EditProfile  from "../profile/component/EditProfile"
+import  Faq  from "../profile/component/faq"
+import  Help  from "../profile/component/help"
+import  SavedPost  from "../profile/component/savedPost"
 
 const Profile = () => {
   const router = useRouter();

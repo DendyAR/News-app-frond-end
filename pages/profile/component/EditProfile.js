@@ -1,3 +1,4 @@
+import React from "react";
 import { useState, useEffect } from "react";
 import useSWR from "swr";
 import Fetcher from "../../../lib/fetcher";
@@ -5,84 +6,82 @@ import { verifyUser } from "../../../lib/fetchUsers";
 import { useUser } from "../../api/users";
 
 const EditProfile = () => {
-	const data = useSWR("api/verify", verifyUser);
-	const id = data?.data?.id;
-	const token_user = data?.data?.token;
+  const data = useSWR("api/verify", verifyUser);
+  const id = data?.data?.id;
+  const token_user = data?.data?.token;
   const [background, setBackground] = useState([]);
   const [photo, setPhoto] = useState([]);
-	const { user, mutateUser, errUser } = useUser(id);
-	const [dataUser, setDataUser] = useState({
-    username : null,
-    name : null,
-    email : null,
-    password : null,
-    job : null,
-    about : null
-  })
-
-	useEffect(()=>{
-    const formData = new FormData()
-    if(photo.name != undefined){
-      formData.append(`photo`, photo)
-      try{
-        const response = Fetcher({
-          method:'PATCH',
-          url:`${process.env.API_URL}/users/update-user/${id}`,
-          headers:{'user-token' : token_user},
-          data:formData
-        })
-        if(response.status == 200){
-
-        }else{
-
-        }
-      }catch(error){
-        console.log(error)
-      }
-    }
-  }, [photo])
+  const { user, mutateUser, errUser } = useUser(id);
+  const [dataUser, setDataUser] = useState({
+    username: null,
+    name: null,
+    email: null,
+    password: null,
+    job: null,
+    about: null,
+  });
 
   useEffect(() => {
-    const formData = new FormData()
-    if(background.name != undefined){
-      formData.append(`image`, background)
-        try{
-          const response = Fetcher({
-            method:'PATCH',
-            url:`${process.env.API_URL}/users/${id}`,
-            headers:{'user-token' : token_user},
-            data:formData
-          })
-          if(response.status == 200){
-            console.log(response)
-          }else{
-            console.log(response)
-          }
-        }catch(err){
-          console.log(err)
+    const formData = new FormData();
+    if (photo.name != undefined) {
+      formData.append(`photo`, photo);
+      try {
+        const response = Fetcher({
+          method: "PATCH",
+          url: `${process.env.API_URL}/users/update-user/${id}`,
+          headers: { "user-token": token_user },
+          data: formData,
+        });
+        if (response.status == 200) {
+        } else {
         }
-    }
-  }, [background])
-
-	const processUpdate = (e) =>{
-    e.preventDefault();
-    try{
-      const response = Fetcher({
-        method:'PATCH',
-        url:`${process.env.API_URL}/users/update-user/${id}`,
-        headers:{'user-token' : token_user},
-        data:dataUser
-      });
-      if(response.status == 200){
-        console.log(response)
-        mutateUser(user)
-      }else{
-        console.log(response)
+      } catch (error) {
+        console.log(error);
       }
-    }catch(err){
-      console.log(err)
     }
-  }
+  }, [photo]);
+
+  useEffect(() => {
+    const formData = new FormData();
+    if (background.name != undefined) {
+      formData.append(`image`, background);
+      try {
+        const response = Fetcher({
+          method: "PATCH",
+          url: `${process.env.API_URL}/users/${id}`,
+          headers: { "user-token": token_user },
+          data: formData,
+        });
+        if (response.status == 200) {
+          console.log(response);
+        } else {
+          console.log(response);
+        }
+      } catch (err) {
+        console.log(err);
+      }
+    }
+  }, [background]);
+
+  const processUpdate = (e) => {
+    e.preventDefault();
+    try {
+      const response = Fetcher({
+        method: "PATCH",
+        url: `${process.env.API_URL}/users/update-user/${id}`,
+        headers: { "user-token": token_user },
+        data: dataUser,
+      });
+      if (response.status == 200) {
+        console.log(response);
+        mutateUser(user);
+      } else {
+        console.log(response);
+      }
+    } catch (err) {
+      console.log(err);
+    }
+  };
   return (
     <>
       <div className="position-relative z1 h-auto">
@@ -227,4 +226,4 @@ const EditProfile = () => {
   );
 };
 
-export default EditProfile
+export default EditProfile;

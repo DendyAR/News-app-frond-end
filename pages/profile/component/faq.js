@@ -22,11 +22,14 @@ const Faq = () => {
                 id="collapseOne"
                 className="accordion-collapse collapse show"
                 aria-labelledby="headingOne"
-                data-bs-parent="#accordionExample">
+                data-bs-parent="#accordionExample"
+              >
                 <div className="accordion-body">
-                  <strong>News Today is news portal website</strong>. With News Today you can read news and posting your own news.
-                  you can request to be author before you post the news, if you just read the news, you can register and you will
-                  to be member, you can read, comment, like and save news on your profile !
+                  <strong>News Today is news portal website</strong>. With News
+                  Today you can read news and posting your own news. you can
+                  request to be author before you post the news, if you just
+                  read the news, you can register and you will to be member, you
+                  can read, comment, like and save news on your profile !
                 </div>
               </div>
             </div>
@@ -50,8 +53,9 @@ const Faq = () => {
                 data-bs-parent="#accordionExample"
               >
                 <div className="accordion-body">
-                  <strong>To join to be author it's very simple ! </strong> First go to your profile, and touch or select 
-                  button request to be author and you will get code verification on your email.
+                  <strong>To join to be author it's very simple ! </strong>{" "}
+                  First go to your profile, and touch or select button request
+                  to be author and you will get code verification on your email.
                 </div>
               </div>
             </div>
@@ -75,7 +79,9 @@ const Faq = () => {
                 data-bs-parent="#accordionExample"
               >
                 <div className="accordion-body">
-                  <strong>Because to minimalize news Hoax ! </strong> you can report the news if its hoax, so this website its very usefull for everyone
+                  <strong>Because to minimalize news Hoax ! </strong> you can
+                  report the news if its hoax, so this website its very usefull
+                  for everyone
                 </div>
               </div>
             </div>
