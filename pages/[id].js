@@ -1,7 +1,7 @@
 import { getArticle } from "./api/news";
 import { useRouter } from "next/router";
 import { useEffect } from "react";
-import { Header, Navbar, Footer } from "../component";
+import { Header, Navbar, Footer } from "../components";
 import moment from "moment";
 
 const DetailNews = () => {

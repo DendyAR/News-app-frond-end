@@ -1,5 +1,5 @@
 import styles from "../../styles/auth.module.css";
-import { Footer, Header } from "../../component";
+import { Footer, Header } from "../../components";
 import Link from "next/link";
 import { useState } from "react";
 import { userRegister } from "../../lib/fetchUsers";

@@ -1,4 +1,4 @@
-import { Navbar, Footer, Header } from "../../component";
+import { Navbar, Footer, Header } from "../../components";
 import axios from "axios";
 import { useState } from "react";
 import Fetcher from "../../lib/fetcher";

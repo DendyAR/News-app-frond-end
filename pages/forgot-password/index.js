@@ -1,5 +1,5 @@
 import styles from "../../styles/auth.module.css";
-import { Footer, Header } from "../../component";
+import { Footer, Header } from "../../components";
 export default function ForgotPassword() {
   return (
     <>

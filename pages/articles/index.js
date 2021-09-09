@@ -1,4 +1,4 @@
-import { Navbar, Footer, Header } from "../../component";
+import { Navbar, Footer, Header } from "../../components";
 import styles from "../../styles/Home.module.css";
 import axios from "axios";
 import {getAllArticle} from '../../lib/fetchNews' 

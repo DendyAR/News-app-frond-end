@@ -1,5 +1,5 @@
 import useSWR from "swr";
-import { Navbar, Header, Footer } from "../../component";
+import { Navbar, Header, Footer } from "../../components";
 import { userLogout, verifyUser } from "../../lib/fetchUsers";
 import { useUser } from "../api/users";
 import { useRouter } from "next/router";

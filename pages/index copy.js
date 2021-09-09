@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from "react";
 import Image from 'next/image'
 import Link from 'next/link'
-import Title from '../component/Title'
-import Footer from '../component/Footer'
-import Navbar from '../component/Navbar'
+import Title from '../components/Title'
+import Footer from '../components/Footer'
+import Navbar from '../components/Navbar'
 import useAuth from '../lib/useAuth'
 import { fetcherGet } from '../lib/fetcher'
 import useSWR from 'swr'
