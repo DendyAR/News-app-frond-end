@@ -10,6 +10,7 @@
   "dependencies": {
     "axios": "^0.21.1",
     "bootstrap": "^5.0.1",
+    "dotenv": "^10.0.0",
     "moment": "^2.29.1",
     "next": "10.2.2",
     "next-iron-session": "^4.1.13",
